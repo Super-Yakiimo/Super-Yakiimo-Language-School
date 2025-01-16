@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<link rel="stylesheet" href="../css/memory.css">
+
+</head>
+
+<body>
+
+
+  <h1>Memory Game</h1>
+
+  <p>Cards select</p>
+
+  <input onchange="checkSelect()" type="checkbox" id="food" name="card-select"><label for="food">Food</label>
+
+  <input onchange="checkSelect()" type="checkbox" id="fruit" name="card-select"><label for="fruit">Fruit</label>
+
+  <input onchange="checkSelect()" type="checkbox" id="vegetable" name="card-select"><label for="vegetable">Vegetable</label>
+
+  <input onchange="checkSelect()" type="checkbox" id="color" name="card-select"><label for="color">Color</label>
+
+  <input onchange="checkSelect()" type="checkbox" id="stationary" name="card-select"><label for="stationary">Stationary</label>
+
+  <input onchange="checkSelect()" type="checkbox" id="winter" name="card-select"><label for="winter">Winter</label>
+
+  <div>
+    Selected: <span id="selectText"></span>
+  </div>
+
+  <p>Select puzzle to start</p>
+
+  <button class="confirm" id="thrBy4" onClick="createGame(3, 4);">3x4</button>
+  <button class="confirm" id="frBy4" onClick="createGame(4, 4);">4x4</button>
+  <button class="confirm" id="frBy5" onClick="createGame(4, 5);">4x5</button>
+  <button class="confirm" id="frBy6" onClick="createGame(4, 6);">4x6</button>
+  <button class="confirm" id="fvBy6" onClick="createGame(5, 6);">5x6</button>
+  <button class="confirm" id="sxBy5" onClick="createGame(6, 5);">6x5</button>
+
+  <div id="cardParent"></div>
+
+  <script src="../js/img_database.js"></script>
+  <script src="../js/memory.js"></script>
+
+</body>
+
+</html>
