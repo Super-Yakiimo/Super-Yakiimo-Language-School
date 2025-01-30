@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<link rel="stylesheet" href="./memory.css">
+
+</head>
+
+<body>
+
+  <h1>Memory Game</h1>
+
+  <p>Cards select</p>
+
+  <div id="vocabBox"></div>
+  <div id="voiceControl"></div>
+
+  <p>Select puzzle to start</p>
+
+  <button class="confirm" id="thrBy4" onClick="createGame(3, 4);">3x4</button>
+  <button class="confirm" id="frBy4" onClick="createGame(4, 4);">4x4</button>
+  <button class="confirm" id="frBy5" onClick="createGame(4, 5);">4x5</button>
+  <button class="confirm" id="frBy6" onClick="createGame(4, 6);">4x6</button>
+  <button class="confirm" id="fvBy6" onClick="createGame(5, 6);">5x6</button>
+  <button class="confirm" id="sxBy5" onClick="createGame(6, 5);">6x5</button>
+
+  <div id="cardParent"></div>
+
+   <!-- database js -->
+
+  <script src="../_js/img_database.js"></script>
+
+  <!-- template js -->
+
+  <script src="../_js/vocabSelectBox.js"></script>
+  <script src="../_js/voiceControl.js"></script>
+
+   <!-- for this program js -->
+
+  <script src="./memory.js"></script>
+
+</body>
+
+</html>
