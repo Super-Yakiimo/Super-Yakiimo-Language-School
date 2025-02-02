@@ -1,62 +1,104 @@
-const BACK = [
-    "https://illustgo.com/postsimgs/l/ig000828.png", //10
-    "https://illustgo.com/postsimgs/l/ig000828.png", //10
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs714DMCC8cf82qM_lENBMAqFpwoK5DQunWQ&s", //20
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs714DMCC8cf82qM_lENBMAqFpwoK5DQunWQ&s", // 20
-    "https://img.freepik.com/premium-photo/silver-3d-numbers-30-thirty-isolated-white-background-3d-illustration_394271-8497.jpg", //30
-    "https://png.pngtree.com/png-vector/20231006/ourmid/pngtree-wooden-numeric-40-cipher-png-image_10081430.png", //40
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThyZOubh2MCIDF2iKy6lUEccQnWLksxU1gLw&s", //switch
-    "https://media.istockphoto.com/id/868927780/ja/%E3%83%99%E3%82%AF%E3%82%BF%E3%83%BC/%E9%9D%92%E8%89%B2%E3%81%AE%E3%82%B7%E3%83%B3%E3%83%9C%E3%83%AB%E8%A8%98%E5%8F%B7%E5%B5%90%E3%81%AE%E3%83%8F%E3%83%AA%E3%82%B1%E3%83%BC%E3%83%B3.jpg?s=612x612&w=0&k=20&c=ZK5QiuamITrZ8ahdX97TEc6HLwaPIPLu495_3LO1qYE=", //typhoon
-    "https://png.pngtree.com/png-clipart/20240208/original/pngtree-x2-3d-choice-photo-png-image_14262939.png" // x2
+const TEN = "typhoon/ten.png";
+const TWENTY = "typhoon/twenty.png";
+const THIRTY = "typhoon/thirty.png";
+const FOURTY = "typhoon/fourty.png";
+const SWITCH = "typhoon/switch.jpg";
+const TIMES_TWO = "typhoon/timesTwo.png";
+const TYPHOON = "typhoon/typhoon.jpg";
+
+const WEIGHT_LIST = [
+    TEN, TWENTY, THIRTY, FOURTY, SWITCH, TIMES_TWO, TYPHOON
 ];
 
-let cardSelect = document.querySelector('select');
+function loadCards(number = 10) {
+    let cardCon = document.querySelector("#cardCon");
 
-cardSelect.addEventListener('change', (event) => {
-console.log(event.target.value);
-loadCards(event.target.value)
-});
+    let list = getInputs().sort(() => Math.random() - 0.5).slice(0, number);
 
+    console.log(number, list.length);
 
-function loadCards(select) {
+    if (list == null || list.length == 0) {
+        alert('select some cards');
+    }
 
-let cardCon = document.querySelector("#cardCon");
+    let newBack = Array.from({ length: list.length }, () => WEIGHT_LIST[Math.floor(Math.random() * WEIGHT_LIST.length)]);
 
-let list = [];
+    cardCon.innerHTML = "";
 
-switch (select) {
-    case "Fruit":
-        list = FRUIT.sort(() => Math.random() - 0.5);
-        break;
-    case "Vegetable":
-        list = VEGETABLE.sort(() => Math.random() - 0.5);
-        break; // mix of 12 random
-    case "Mix of nine":
-        list = FRUIT.concat(VEGETABLE).sort(() => Math.random() - 0.5);
-        list = list.slice(0, FRUIT.length);
-        break;
-    case "All cards": // cards
-        list = FRUIT.concat(VEGETABLE).sort(() => Math.random() - 0.5);
-        break;
+    for (let i = 0; i < list.length; i++) {
+
+        // create elements
+        let flipCard = document.createElement("div");
+        flipCard.id = `card${i}`;
+        flipCard.className = "flip-card";
+
+        // flip card inner 
+        let flipInner = document.createElement("div");
+        flipInner.className = "flip-card-inner";
+
+        // front of card
+        let flipFront = document.createElement("div");
+        flipFront.className = "flip-card-front";
+
+        // front image
+        let frontImg = document.createElement("img");
+        frontImg.src = BASE + list[i].link;
+        frontImg.alt = "front image";
+
+        // back of card
+        let flipBack = document.createElement("div");
+        flipBack.className = "flip-card-back";
+
+        // back image
+        let backImage = document.createElement("img");
+        backImage.src = BASE + newBack[i % WEIGHT_LIST.length]
+        backImage.alt = "back image";
+
+        // add image to front
+        flipFront.appendChild(frontImg);
+
+        // add back image to back card
+        flipBack.appendChild(backImage);
+
+        // add to inner
+        flipInner.appendChild(flipFront);
+        flipInner.appendChild(flipBack);
+
+        // add inner to outer
+        flipCard.appendChild(flipInner);
+
+        // add to board
+        cardCon.appendChild(flipCard);
+    }
+
+    for (let i = 0; i < list.length; i++) {
+
+        let card = document.querySelector("#card" + i);
+        card.addEventListener("click", () => {
+            card.classList.add("flip");
+            console.log("click");
+
+        });
+    }
 
 }
 
-let newBack = Array.from({ length: list.length }, () => BACK[Math.floor(Math.random() * BACK.length)]);
 
-cardCon.innerHTML = "";
+window.onload = function () {
+    setup();
 
-for (let i = 0; i < list.length; i++) {
-    cardCon.innerHTML += '<div id="card' + i + '" class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="' + list[i] + '" alt="Avatar" style="width:300px;height:300px;"></div><div class="flip-card-back"><img src="' + newBack[i % BACK.length] + '"></div></div></div>';
-}
+    let sizeSelect = document.querySelector("#sizeSelect");
+    let output = document.querySelector("#output");
+    output.innerHTML = sizeSelect.value;
 
-for (let i = 0; i < list.length; i++) {
-
-    let card = document.querySelector("#card" + i);
-    card.addEventListener("click", () => {
-        card.classList.add("flip");
-        console.log("click");
-
+    sizeSelect.addEventListener("change", () => {
+        let number = Number(sizeSelect.value);
+        let cards = document.querySelectorAll(".flip-card");
+        output.innerHTML = number;
+        console.log(cards.length);
+        cards.forEach(card => {
+            card.setAttribute('style', `width: ${number}vw; height: ${number}vw;`);
+            console.log(card);
+        });
     });
-}
-
 }

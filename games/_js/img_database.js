@@ -23,7 +23,7 @@ const DAYS = [
 const FOOD = [
     { name: "pizza", link: "food/pizza.png" },
     { name: "hamburger", link: "food/food_hamburger_cheese.png" },
-    { name: "french fries", link: "food/french.png" },
+    { name: "french fries", link: "food/food_fried_potato_dish.png" },
     { name: "curry", link: "food/curry.png" },
     { name: "salad", link: "food/salad.png" },
     { name: "steak", link: "food/beef.png" },
@@ -31,6 +31,26 @@ const FOOD = [
     { name: "omlet", link: "food/food_omurice.png" },
     { name: "tacos", link: "food/tacos.png" },
     { name: "sushi", link: "food/sushi.png" },
+    { name: "tenpura", link: "food/food_tenpura.png" },
+    { name: "grilled eel", link: "food/food_unagi_kabayaki.png" },
+    { name: "lasagna", link: "food/lasagna.png" },
+    { name: "rice ball", link: "food/onigiri_maru.png" },
+    { name: "neapolitan spaghetti", link: "food/food_spaghetti_neapolitan.png" },
+    { name: "spaghetti", link: "food/food_spaghetti_bolognese_meatsauce.png" },
+    { name: "ramen", link: "food/ramen_syouyu.png" },
+    { name: "sandwhich", link: "food/food_sandwich_blt.png" },
+    { name: "fried noodles", link: "food/food_yakisoba.png" },
+    { name: "soba", link: "food/food_soba_izumo.png" },
+    { name: "sausage", link: "food/food_sausage.png" },
+    { name: "quiche", link: "food/food_quiche_kissyu.png" },
+    { name: "mabo tofu", link: "food/food_mabo_doufu.png" },
+    { name: "beef rice bowl", link: "food/food_gyudon.png" },
+    { name: "fried chicken", link: "food/food_fried_chicken.png" },
+    { name: "rice", link: "food/food_tamago_gohan4.png" },
+    { name: "grilled fish", link: "food/fish.png" },
+    { name: "curry and nan", link: "food/food_india_meals.png" },
+    { name: "fried pork meal", link: "food/food_katsumeshi.png" },
+    { name: "soup", link: "food/food_soup_okuzukake.png" },
 ]
 
 const VEGETABLE = [
@@ -101,13 +121,46 @@ const COLOR = [
 ]
 
 const SHAPE = [
-    { name: "diamond", path: "shape/zukei_hishigata.png" },
-    { name: "heart", path: "shape/heart.png" },
-    { name: "oval", path: "shape/oval.png" },
-    { name: "rectangle", path: "shape/rectangle.png" },
-    { name: "square", path: "shape/square.png" },
-    { name: "star", path: "shape/star.png" },
-    { name: "triangle", path: "shape/triangle.png" },
+    { name: "diamond", link: "shape/zukei_hishigata.png" },
+    { name: "heart", link: "shape/heart.png" },
+    { name: "oval", link: "shape/oval.png" },
+    { name: "rectangle", link: "shape/rectangle.png" },
+    { name: "square", link: "shape/square.png" },
+    { name: "star", link: "shape/star.png" },
+    { name: "triangle", link: "shape/triangle.png" },
 ];
+
+const DESSERT = [
+    { name: "ice cream", link: "dessert/icecream3_cookiecream.png" },
+    { name: "shaved ice", link: "dessert/kakigoori3_orange.png" },
+    { name: "popcorn", link: "dessert/popcorn.png" },
+    { name: "potato chips", link: "dessert/potatochips.png" },
+    { name: "apple pie", link: "dessert/sweets_applepie.png" },
+    { name: "cake", link: "dessert/sweets_cake_rousoku.png" },
+    { name: "chocolate", link: "dessert/sweets_chocolate_dark.png" },
+    { name: "creampuff", link: "dessert/sweets_creampuff.png" },
+    { name: "donut", link: "dessert/sweets_donut.png" },
+    { name: "parfait", link: "dessert/sweets_fruit_pafe.png" },
+    { name: "pancake", link: "dessert/sweets_pancake.png" },
+    { name: "pudding", link: "dessert/sweets_purin.png" },
+]
+
+const BEVERAGE = [
+    { name: "water", link: "drink/amount_water_glass3.png" },
+    { name: "coffee", link: "drink/coffee04_blend_black.png" },
+    { name: "grean tea", link: "drink/drink_greentea.png" },
+    { name: "ice cream soda", link: "drink/drink_melonsoda.png" },
+    { name: "milk", link: "drink/drink_milk_gallon.png" },
+    { name: "juice", link: "drink/juice_apple.png" },
+    { name: "soda", link: "drink/soda4_green.png" },
+    { name: "tea", link: "drink/tea_lemon.png" },
+]
+
+/*
+
+
+ { name: "", link: "" },
+
+*/
 
 const BASE = "../../resource/img/";

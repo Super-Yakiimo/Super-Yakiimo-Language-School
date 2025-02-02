@@ -13,17 +13,7 @@ _Super Yamiimo Language School_
 
 ![Alt text](/resource/img/yakiimo_mv.jpg)
 
-
 </header>
-
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<!--
-  <<< Author notes: Step 2 >>>
-  Start this step by acknowledging the previous step.
-  Define terms and link to docs.github.com.
-  Historic note: previous version checked for empty pull request, changed to the correct theme `minima`.
--->
 
 ## Step 2: Configure your site
 
@@ -49,20 +39,10 @@ We need to use a blog-ready theme. For this activity, we will use a theme named 
 1. Wait about 20 seconds then refresh this page (the one you're following instructions from). [GitHub Actions](https://docs.github.com/en/actions) will automatically update to the next step.
 =======
 <<<<<<< HEAD
-_Games_
 
-[memory](view/memory.html)
-[Typhoon game](view/typhoon.html)
-[vocab](view/vocab.html)
->>>>>>> Stashed changes
-=======
-<<<<<<< HEAD
-_Games_
 
-[memory](view/memory.html)
-[Typhoon game](view/typhoon.html)
-[vocab](view/vocab.html)
->>>>>>> Stashed changes
+[site](view/index.html)
+
 
 <footer>
 

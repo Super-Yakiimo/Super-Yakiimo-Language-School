@@ -27,37 +27,41 @@ const VC_SLIDE = [
     {
         label: "Volume",
         min: 0, 
-        max: 4,
-        step: 3
+        max: 1,
+        step: 0.1,
+        value: 0.5
     },
     {
         label: "Rate",
         min: 0, 
-        max: 4,
-        step: 3
+        max: 2,
+        step: 0.1,
+        value: 1
     },
     {
         label: "Pitch",
         min: 0, 
-        max: 4,
-        step: 3
+        max: 2,
+        step: 0.1,
+        value: 1
     }
 ];
 
 
 // create slider
-function createSlider(parent, min, max, step, name){
+function createSlider(parent, slider){
     // containter
     let div = document.createElement("div");
     // label
     let label = document.createElement("label");
-    label.innerHTML = name;
+    label.innerHTML = slider.label;
     // slider
     let input = document.createElement("input");
     input.type = "range";
-    input.min = min;
-    input.max = max;
-    input.step = step;
+    input.min = slider.min;
+    input.max = slider.max;
+    input.step = slider.step;
+    input.value = slider.value;
     // output
     let out = document.createElement("span");
     out.innerHTML = input.value;
@@ -111,9 +115,9 @@ function genVoiceControl(){
     voiceControl.appendChild(global_voiceSelect);
 
     // create sliders
-    global_volSlider = createSlider(voiceControl, 0, 1, 0.1, "Volume");
-    global_rateSlider = createSlider(voiceControl, 0.1, 2, 0.1, "Rate");
-    global_pitchSlider = createSlider(voiceControl, 0.1, 2, 0.1, "Pitch");
+    global_volSlider = createSlider(voiceControl, VC_SLIDE[0]);
+    global_rateSlider = createSlider(voiceControl, VC_SLIDE[1]);
+    global_pitchSlider = createSlider(voiceControl, VC_SLIDE[2]);
 }
 
 function speak(text) {
@@ -135,7 +139,7 @@ function speak(text) {
       }
     
     // Queue this utterance.
-      window.speechSynthesis.speak(msg);
+    window.speechSynthesis.speak(msg);
   }
 
 

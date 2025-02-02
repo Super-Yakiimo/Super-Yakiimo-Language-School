@@ -1,6 +1,7 @@
-/* 
 
-vocab stufy stuff learn screen 
+/*
+
+vocab test stuff
 
 */
 
@@ -12,67 +13,16 @@ const CORRECT = "https://freesvg.org/storage/img/thumb/green-tick.png";
 const INCORRECT = "https://freesvg.org/storage/img/thumb/milker_X_icon.png";
 
 
-// create buttons for vocab words
-// get list of vocab and create vocab buttons
-function vocabWords(words) {
-    let vocabBox = document.querySelector("#vocabBox");
-
-    showVocab();
-    hidePuzzle()
-
-    vocabBox.innerHTML = "";
-
-    words.forEach((obj) => {
-        // vocab box
-        let div = document.createElement("div");
-        div.className = "vocab-card";
-
-        // button
-        let btn = document.createElement("button");
-
-
-        // image
-        let img = document.createElement("img");
-
-        // add image to button
-        btn.appendChild(img);
-
-        // name text
-        let nameText = document.createElement("h1");
-        nameText.innerHTML = obj.name;
-
-        img.src = BASE + obj.link;
-        div.appendChild(nameText);
-        div.appendChild(btn);
-        vocabBox.appendChild(div);
-
-        btn.addEventListener("click", () => {
-            let utterance = new SpeechSynthesisUtterance(obj.name);
-            speechSynthesis.speak(utterance);
-        });
-    });
-}
-
-function hideVocab() {
-    let vocabOuter = document.querySelector("#vocabOuter");
-    vocabOuter.style.display = 'none';
-}
-
-function showVocab() {
-    let vocabOuter = document.querySelector("#vocabOuter");
-    vocabOuter.style.display = 'block';
-}
-
-
-/*
-
-vocab test stuff
-
-*/
-
 // control overall test functions 
 // change question and use each vocab term once
-function vocabTest(list) {
+function vocabTest() {
+    let list = getInputs();
+
+    // return alert if none selected
+    if(list == null || list.length == 0){
+        return alert('select something to study');
+    }
+
     // list of test questions and answers
     let testList = [];
 
@@ -115,7 +65,6 @@ answer passin the index of the answer
 function setPuzzle(list) {
     // show screen
     showPuzzle();
-    hideVocab();
 
     let current = 0;
     let score = 0;
@@ -173,6 +122,7 @@ function setPuzzle(list) {
         for (let i = 0; i < 4; i++) {
             // radio input
             let input = document.createElement('input');
+            input.className = 'vocab-input';
             input.type = 'radio';
             input.name = 'vocab-test';
             input.id = questObj.option[i].name;
@@ -223,7 +173,6 @@ function setPuzzle(list) {
                 console.log((answer == questObj.answer.name) ? 'CORRECT' : 'INCORRECT')
                 control();
             }, 1000);
-
         });
     }
 

@@ -30,10 +30,10 @@ make sure img-data.js is included before this is included in the document
 */
 
 // list of category names
-const CAT_LIST = ["Food", "Fruit", "Vegetables", "Colors", "Stationary", "Weather", "Days", "Shapes"];
+const CAT_LIST = ["Food", "Beverage", "Fruit", "Vegetables", "Colors", "Stationary", "Weather", "Days", "Shapes", "Dessert"];
 
 // array of vocab lists in same postion 
-const VOCAB_LIST = [FOOD, FRUIT, VEGETABLE, COLOR, STATIONARY, WEATHER, DAYS, SHAPE];
+const VOCAB_LIST = [FOOD, BEVERAGE, FRUIT, VEGETABLE, COLOR, STATIONARY, WEATHER, DAYS, SHAPE, DESSERT];
 
 /* start */
 function setup(){

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Board</title>
+    <?!= include('StyleSheet'); ?>
+    <link rel="stylesheet" href="./buttonBoard.css">
+</head>
+
+<body>
+
+    <div id="vocabBox"></div>
+    <div id="voiceControl"></div>
+
+    <button onClick="vocabWords()">Load</button>
+
+    <div id="vocabCardBox"></div>
+
+    <script src="../_js/img_database.js"></script>
+
+    <!-- template js -->
+    <script src="../_js/vocabSelectBox.js"></script>
+    <script src="../_js/voiceControl.js"></script>
+
+    <script src="./buttonBoard.js"></script>
+</body>
+
+</html>

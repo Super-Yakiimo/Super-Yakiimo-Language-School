@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <link rel="stylesheet" href="./test.css">
+</head>
+<body>
+    <div id="vocabBox"></div>
+    <div id="voiceControl"></div>
+    
+    <button type="type" onclick="vocabTest()">Test</button>
+
+    <div id="questionBox">
+        <div id="puzzleBox">
+
+            <div>
+                <img id="question" src="https://freesvg.org/storage/img/thumb/TC.png">
+            </div>
+
+            <input class="vocab-input" type="radio" name="vocab-test" id="input0">
+            <label for="input0" id="label0">
+                <img src="../../resource/img/mono-gnome-question.png" alt="image one">
+            </label>
+            <input class="vocab-input" type="radio" name="vocab-test" id="input1">
+            <label for="input1" id="label1">
+                <img src="../../resource/img/mono-gnome-question.png" alt="image one">
+            </label>
+            <input class="vocab-input" type="radio" name="vocab-test" id="input2">
+            <label for="input2" id="label2">
+                <img src="../../resource/img/mono-gnome-question.png" alt="image one">
+            </label>
+            <input class="vocab-input" type="radio" name="vocab-test" id="input3">
+            <label for="input3" id="label3">
+                <img src="../../resource/img/mono-gnome-question.png" alt="image one">
+            </label>
+
+            <button id="enter">Enter</button>
+        </div>
+
+        <div id='result'>
+            <img alt="result" id='resultImg' src='https://freesvg.org/storage/img/thumb/green-tick.png'>
+        </div>
+    </div>
+
+
+    <script src="../_js/img_database.js"></script>
+
+    <!-- template js -->
+    <script src="../_js/vocabSelectBox.js"></script>
+    <script src="../_js/voiceControl.js"></script>
+
+
+    <script src="./test.js"></script>
+</body>
+</html>
