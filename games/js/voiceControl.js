@@ -9,9 +9,9 @@ James Lehoe
 
 ...
 
-<script src="../_js/img_database.js"></script>
+<script src="../js/img_database.js"></script>
 
-<script src="../_js/voiceControl.js"></script>
+<script src="../js/voiceControl.js"></script>
 
 
 */

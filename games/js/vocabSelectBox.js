@@ -22,8 +22,8 @@ make sure img-data.js is included before this is included in the document
 
 ...
 
-<script src="../_js/img_database.js"></script>
-<script src="../_js/vocabSelectBox.js"></script>
+<script src="../js/img_database.js"></script>
+<script src="../js/vocabSelectBox.js"></script>
 
 ###########################################################
 
