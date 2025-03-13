@@ -121,12 +121,15 @@ const COLOR = [
 ]
 
 const SHAPE = [
-    { name: "diamond", link: "shape/zukei_hishigata.png" },
+    { name: "diamond", link: "shape/diamond.png" },
     { name: "heart", link: "shape/heart.png" },
     { name: "oval", link: "shape/oval.png" },
     { name: "rectangle", link: "shape/rectangle.png" },
     { name: "square", link: "shape/square.png" },
     { name: "star", link: "shape/star.png" },
+    { name: "parallelogram", link: "shape/paralleogram.png"},
+    { name: "trapezoid", link: "shape/trapazoid.png"},
+    { name: "right triangle", link: "shape/right-triangle.png" },
     { name: "triangle", link: "shape/triangle.png" },
 ];
 

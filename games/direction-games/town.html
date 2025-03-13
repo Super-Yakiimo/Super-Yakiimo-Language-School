@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .man {
+            width: 10%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .map {
+            height: 100vh;
+            max-width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <img class="map" src="./town-old/map.jpg">
+    <img class="man" src="./town-old/man1.png">
+
+    <script>
+
+        let obj = document.querySelector(".man");
+
+        window.onload = function () {
+            let angle = 90;
+
+            let xPos = 100;
+            let yPos = 100;
+
+            // forward and backward movement
+            let lat = 0;
+            // turning left and right
+            let turn = 0;
+
+            let speed = 2;
+            let turnSpeed = 1;
+
+            window.addEventListener("click", (e)=>{
+                console.log(e);
+                xPos = e.offsetX;
+                yPos = e.offsetY;
+            });
+
+            window.addEventListener("keydown", (e) => {
+                if (e.code == "ArrowLeft") {
+                    turn = -turnSpeed;
+                }
+                else if (e.code == "ArrowRight") {
+                    turn = turnSpeed;
+                }
+
+                if (e.code == "ArrowUp") {
+                    lat = speed;
+                }
+                else if (e.code == "ArrowDown") {
+                    lat = -speed;
+                }
+            });
+
+            window.addEventListener("keyup", (e) => {
+                if(e.code == "ArrowLeft" || e.code == "ArrowRight"){
+                    turn = 0;
+                }
+
+                if(e.code == "ArrowUp" || e.code == "ArrowDown"){
+                    lat = 0;
+                }
+            });
+
+            function anim() {
+
+                let dx = Math.cos((angle - 90) * Math.PI / 180);
+                let dy = Math.sin((angle - 90) * Math.PI / 180);
+
+                xPos += dx * lat;
+                yPos += dy * lat;
+
+                angle += turn;
+
+                if (angle < 0) {
+                    angle = 360;
+                }
+
+                if (angle > 360) {
+                    angle = angle % 360;
+                }
+
+                obj.style.rotate = angle + "deg";
+                obj.style.left = xPos + 'px';
+                obj.style.top = yPos + 'px';
+
+                window.requestAnimationFrame(anim);
+            }
+
+
+            window.requestAnimationFrame(anim);
+
+        }
+
+    </script>
+</body>
+
+</html>

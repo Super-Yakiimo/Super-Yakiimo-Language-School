@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+	.man {
+		width: 5%;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	.map {
+		height: 100vh;
+		max-width: 100%;
+	}
+
+	#out {
+		position: fixed;
+	}
+
+	body {
+		margin: 0;
+	}
+</style>
+
+
+<body>
+	<img class="map" src="map.jpg">
+	<span id="out"></span>
+
+	<img class="man" src="man1.png">
+
+	<script>
+
+		// character directions
+		const DIR = ["UP", "RIGHT", "DOWN", "LEFT"];
+
+		// speed 
+		const SPEED = 10;
+
+		// object
+		function setPos(obj, player) {
+
+			let angle = 90;
+
+			switch (DIR[player.index]) {
+				case "UP":
+					angle = 0;
+					break;
+				case "RIGHT":
+					angle = 90;
+					break;
+				case "DOWN":
+					angle = 180;
+					break;
+				case "LEFT":
+					angle = 270;
+					break;
+			}
+
+			obj.style.rotate = angle + "deg";
+			obj.style.left = player.xPos + 'px';
+			obj.style.top = player.yPos + 'px';
+		}
+
+		// move forward and backwards back boolean backwards
+		function move(player, back) {
+
+			let speed = SPEED;
+
+			if (back) { speed = -speed; }
+
+			switch (DIR[player.index]) {
+				case "UP":
+					player.yPos -= speed;
+					break;
+				case "RIGHT":
+					player.xPos += speed;
+					break;
+				case "DOWN":
+					player.yPos += speed;
+					break;
+				case "LEFT":
+					player.xPos -= speed;
+					break;
+
+			}
+
+			//console.log(player);
+		}
+
+		window.onload = function () {
+
+			// player 
+			let player = {
+				index: 0,
+				xPos: 50,
+				yPos: 50,
+				w: window.innerWidth * 0.05 / 2,
+				h: window.innerHeight * 0.05 / 2,
+			}
+
+			let obj = document.querySelector(".man");
+
+			setPos(obj, player)
+
+			window.addEventListener("keydown", (e) => {
+
+				switch (e.code) {
+					case "ArrowUp":
+						move(player, false);
+						break;
+					case "ArrowLeft":
+						player.index -= 1;
+						if (player.index < 0)
+							player.index = 3;
+						break;
+					case "ArrowDown":
+						move(player, true);
+						break;
+					case "ArrowRight":
+						player.index += 1;
+						if (player.index > 3)
+							player.index = 0;
+						break;
+				}
+				setPos(obj, player)
+				document.querySelector("#out").innerHTML = player.xPos + " " + player.yPos + " " + DIR[player.index];
+
+			});
+
+			window.addEventListener("click", (e) => {
+				//console.log(e);
+				player.xPos = e.offsetX - player.w;
+				player.yPos = e.offsetY - player.h;
+				setPos(obj, player)
+			});
+
+		}
+
+	</script>
+
+
+</body>
+
+</html>

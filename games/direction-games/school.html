@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> School Nav</title>
+
+    <style>
+        body {
+            margin: 0px;
+        }
+        .box {
+            display: flex;
+            flex-direction: row;
+        }
+        .map-con {
+            position: relative;
+            width: fit-content;
+            height: fit-content;
+        }
+        #mapCan {
+            position: absolute;
+            z-index: -1;
+        }
+        canvas {
+            border: 1px solid black;
+        }
+        .control {
+            position: relative;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="box">
+        <div class="map-con">
+
+            <canvas id="mapCan"></canvas>
+            
+            <canvas id="charCan"></canvas>
+    
+            <img style="display: none;" id="mapImg" alt="map" src="../../resource/img/map/mapWithIcons.png">
+            <img style="display: none;" id="charImg" alt="char" src="../../resource/img/map/character.png">
+            
+        </div>
+    
+        <div class="control">
+            <h1>Control box</h1>
+            <h1>Movement</h1>
+            <button type="button" id="leftBuffon">Turn Left</button>
+            <button type="button" id="straightBuffon">Go Straight</button>
+            <button type="button" id="rightBuffon">Turn Right</button>
+
+            <h1>Info</h1>
+            <span id="infoBox"></span>
+        </div>
+    </div>
+    <script src="./nav.js"></script>
+</body>
+
+</html>

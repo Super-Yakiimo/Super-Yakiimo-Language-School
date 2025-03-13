@@ -2,14 +2,14 @@ window.onload = function () {
     let base = document.querySelector("#base");
     let btx = base.getContext('2d', { willReadFrequently: true });
 
-    base.width = 500;
-    base.height = 500;
+    base.width = window.innerWidth * 0.5;
+    base.height = window.innerWidth * 0.5;
 
     let silCan = document.querySelector("#silowette");
     let stx = silCan.getContext('2d');
 
-    silCan.width = 500;
-    silCan.height = 500;
+    silCan.width =  window.innerWidth * 0.5;
+    silCan.height =  window.innerWidth * 0.5;
 
     setup();
 
