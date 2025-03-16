@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
 
     <link rel="stylesheet" href="./test.css">
 </head>
+
 <body>
     <div id="vocabBox"></div>
     <div id="voiceControl"></div>
@@ -34,18 +36,24 @@
 
     <!-- puzzle load area -->
 
-    <div id="puzzleCon" class="hide">
+    <div id="puzzleCon">
+
         <div id="quest-con"></div>
         <div id="test-con"></div>
         <div id="enter-con"></div>
-    
+
         <script src="../js/img_database.js"></script>
-    
-        <!-- template js -->
-        <script src="../js/vocabSelectBox.js"></script>
-        <script src="../js/voiceControl.js"></script>
+
+        <div class="result-box">
+            <img alt="X" class="hide" id="result" src="../../resource/img/icon/mark_batsu.png">
+        </div>
     </div>
+
+    <!-- template js -->
+    <script src="../js/vocabSelectBox.js"></script>
+    <script src="../js/voiceControl.js"></script>
 
     <script src="./test.js"></script>
 </body>
+
 </html>

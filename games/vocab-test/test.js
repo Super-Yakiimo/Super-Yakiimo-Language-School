@@ -4,6 +4,9 @@ const QUEST = "../../resource/img/icon/blackbox_close_question.png";
 const SOUND = "../../resource/img/icon/TC.png";
 const ENTER = "../../resource/img/icon/enter.png";
 
+const MARU = "../../resource/img/icon/mark_maru.png";
+const BATSU = "../../resource/img/icon/mark_batsu.png";
+
 // types of questions enum
 const TYPE = Object.freeze({
     SELECT_SOUND: "#selectSound",
@@ -92,6 +95,9 @@ const startTest = () => {
     let testCon = document.querySelector("#test-con");
     let questCon = document.querySelector("#quest-con");
     let enterCon = document.querySelector("#enter-con");
+
+    // result image
+    let result = document.querySelector("#result");
 
     /*
     checking user input and validating response
@@ -249,19 +255,25 @@ const startTest = () => {
 
         enterBtn.addEventListener("click", () => {
             if (userSelect === quest.answer.name) {
+                result.src = MARU;
                 speak('correct');
+                result.classList.remove('hide');
                 setTimeout(() => {
                     index++;
                     createQuestion();
+                    result.classList.add('hide');
                 }, 1000);
             }
             else {
                 speak('incorrect');
+                result.src = BATSU;
+                result.classList.remove('hide');
+                setTimeout(() => {
+                    result.classList.add('hide');
+                }, 1000);
             }
             console.log(userSelect);
             console.log(quest.answer.name);
-
-
         });
 
         enterCon.appendChild(enterBtn);
