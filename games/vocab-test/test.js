@@ -252,6 +252,7 @@ const startTest = () => {
 
         // enter button
         let enterBtn = createBtn(ENTER);
+        enterBtn.className = "enter-btn";
 
         enterBtn.addEventListener("click", () => {
             if (userSelect === quest.answer.name) {

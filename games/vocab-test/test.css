@@ -11,6 +11,7 @@
 
 .select-img {
     padding: 10px;
+    margin: auto;
 }
 
 .select-img, .select-img img{
@@ -24,6 +25,8 @@
 }
 
 .quest-btn img{
+    display: block;
+    margin: auto;
     max-width: 20%;
     max-height: 20%;
 }
@@ -45,7 +48,7 @@
     height: 100%;
 */
 
-.result-box img {
+.result-box img, .enter-btn img{
     display: block;
     margin: auto;
 }
