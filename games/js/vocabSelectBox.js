@@ -38,6 +38,9 @@ const VOCAB_LIST = [FOOD, BEVERAGE, FRUIT, VEGETABLE, COLOR, STATIONARY, WEATHER
 /* start */
 function setup(){
     let vocabBox = document.querySelector("#vocabBox");
+
+    vocabBox.style = "border:1px solid black;padding:10px;margin:5px;border-radias:10%;";
+
     if(vocabBox == null){
         return console.error('vocab box not found please add div with id vocab box');
     }
@@ -67,5 +70,5 @@ function getInputs(){
         }
     }
     // return the list of selected vocab lists
-    return selectList;
+    return selectList.sort(() => Math.random() - 0.5);
 }

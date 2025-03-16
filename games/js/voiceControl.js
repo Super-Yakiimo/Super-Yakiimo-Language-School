@@ -25,21 +25,21 @@ global_pitchSlider;
 // input ids
 const VC_SLIDE = [
     {
-        label: "Volume",
+        label: "Volume: ",
         min: 0, 
         max: 1,
         step: 0.1,
-        value: 0.5
+        value: 1
     },
     {
-        label: "Rate",
+        label: "Rate: ",
         min: 0, 
         max: 2,
         step: 0.1,
         value: 1
     },
     {
-        label: "Pitch",
+        label: "Pitch: ",
         min: 0, 
         max: 2,
         step: 0.1,
@@ -95,11 +95,16 @@ function genVoiceControl(){
         return voiceControl.innerHTML = 'this browser does not support speech synthesis';
     }
 
+    // set styles
+    voiceControl.style = "border:1px solid black;padding:10px;margin:5px;border-radias:10%;";
+
     // clear voice control 
     voiceControl.innerHTML = "";
 
     // create voice select box
     global_voiceSelect = document.createElement("select");
+
+    global_voiceSelect.style.width = "50%";
 
     // get voices from speech synthesis
     let voices = speechSynthesis.getVoices();

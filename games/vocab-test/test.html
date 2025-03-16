@@ -11,11 +11,33 @@
     <div id="vocabBox"></div>
     <div id="voiceControl"></div>
 
-    <button onclick="listenTest()">Listening</button>
-    <button onclick="spellTest()">Spelling</button>
+    <!-- 
+        question type select 
+        multiple choice
+    -->
 
-    <div id="puzzleCon" class="hide">    
+    <input type="checkbox" name="quest-type" id="selectSound">
+    <label for="listening">Select sound</label>
+
+    <input type="checkbox" name="quest-type" id="selectImage">
+    <label for="listening">Select image</label>
+
+    <input type="checkbox" name="quest-type" id="reading">
+    <label for="listening">Reading</label>
+
+    <!-- type the answer -->
+
+    <input type="checkbox" name="quest-type" id="spelling">
+    <label for="listening">Spelling</label>
+
+    <button onclick="startTest()">Enter</button>
+
+    <!-- puzzle load area -->
+
+    <div id="puzzleCon" class="hide">
+        <div id="quest-con"></div>
         <div id="test-con"></div>
+        <div id="enter-con"></div>
     
         <script src="../js/img_database.js"></script>
     

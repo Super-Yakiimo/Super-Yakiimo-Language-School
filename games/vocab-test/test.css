@@ -1,3 +1,29 @@
-img {
+#test-con {
+    display:flex;
+    flex-direction: row;
+    padding: 10px;
+    margin: 10px;
+}
+
+.vocab-input {
+    display: none;
+}
+
+.select-img {
+    padding: 10px;
+}
+
+.select-img, .select-img img{
     width: 100px;
+    height: 100px;
+}
+
+.vocab-input:checked+label {
+    border-radius: 10%;
+    border: 5px solid black;
+}
+
+.quest-btn img{
+    max-width: 20%;
+    max-height: 20%;
 }
