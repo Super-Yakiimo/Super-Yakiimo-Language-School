@@ -554,3 +554,31 @@ window.onload = function () {
 // GET POSITION LIST END
 //     });
 // }
+
+
+let bingo = {
+    width: 8,
+    height: 8,
+    layout: [
+        // top row
+        { x: 0, y: 0, w: 2, h: 2 },
+        { x: 2, y: 0, w: 2, h: 2 },
+        { x: 4, y: 0, w: 2, h: 2 },
+        { x: 6, y: 0, w: 2, h: 2 },
+        // second row
+        { x: 0, y: 2, w: 2, h: 2 },
+        { x: 2, y: 2, w: 2, h: 2 },
+        { x: 4, y: 2, w: 2, h: 2 },
+        { x: 6, y: 2, w: 2, h: 2 },
+        // third row
+        { x: 0, y: 4, w: 2, h: 2 },
+        { x: 2, y: 4, w: 2, h: 2 },
+        { x: 4, y: 4, w: 2, h: 2 },
+        { x: 6, y: 4, w: 2, h: 2 },
+        // bottom row
+        { x: 0, y: 6, w: 2, h: 2 },
+        { x: 2, y: 6, w: 2, h: 2 },
+        { x: 4, y: 6, w: 2, h: 2 },
+        { x: 6, y: 6, w: 2, h: 2 },
+    ]
+}

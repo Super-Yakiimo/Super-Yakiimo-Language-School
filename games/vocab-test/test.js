@@ -7,6 +7,9 @@ const ENTER = "../../resource/img/icon/enter.png";
 const MARU = "../../resource/img/icon/mark_maru.png";
 const BATSU = "../../resource/img/icon/mark_batsu.png";
 
+const CORRECT = "../../resource/sound/181859__timgormly__training-program-correct2.mp3";
+const INCORRECT = "../../resource/sound/181858__timgormly__training-program-incorrect1.mp3";
+
 // types of questions enum
 const TYPE = Object.freeze({
     SELECT_SOUND: "#selectSound",
@@ -95,6 +98,12 @@ const startTest = () => {
     let testCon = document.querySelector("#test-con");
     let questCon = document.querySelector("#quest-con");
     let enterCon = document.querySelector("#enter-con");
+
+    // sounds
+    var correctAudio = new Audio(CORRECT);
+    var incorrectAudio = new Audio(INCORRECT);
+
+    console.log(correctAudio);
 
     // result image
     let result = document.querySelector("#result");
@@ -257,16 +266,19 @@ const startTest = () => {
         enterBtn.addEventListener("click", () => {
             if (userSelect === quest.answer.name) {
                 result.src = MARU;
-                speak('correct');
+                correctAudio.play();
                 result.classList.remove('hide');
                 setTimeout(() => {
                     index++;
+                    if(index >= testList.length){
+                        index=0;
+                    }
                     createQuestion();
                     result.classList.add('hide');
                 }, 1000);
             }
             else {
-                speak('incorrect');
+                incorrectAudio.play();
                 result.src = BATSU;
                 result.classList.remove('hide');
                 setTimeout(() => {

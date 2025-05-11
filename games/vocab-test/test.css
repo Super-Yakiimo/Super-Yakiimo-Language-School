@@ -1,8 +1,23 @@
+#puzzleCon {
+    padding: 10px;
+}
+
 #test-con {
     display:flex;
     flex-direction: row;
     padding: 10px;
-    margin: 10px;
+    margin: auto;
+}
+
+#test-con input {
+    width: 50%;
+    height: 50px;
+    margin: auto;
+}
+
+#quest-con {
+    margin: auto;
+    text-align: center;
 }
 
 .vocab-input {

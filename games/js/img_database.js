@@ -35,7 +35,6 @@ const FOOD = [
     { name: "grilled eel", link: "food/food_unagi_kabayaki.png" },
     { name: "lasagna", link: "food/lasagna.png" },
     { name: "rice ball", link: "food/onigiri_maru.png" },
-    { name: "neapolitan spaghetti", link: "food/food_spaghetti_neapolitan.png" },
     { name: "spaghetti", link: "food/food_spaghetti_bolognese_meatsauce.png" },
     { name: "ramen", link: "food/ramen_syouyu.png" },
     { name: "sandwhich", link: "food/food_sandwich_blt.png" },
@@ -95,10 +94,11 @@ const STATIONARY = [
     { name: "glue stick", link: "stationary/glue stick.png" },
     { name: "pen", link: "stationary/pen.png" },
     { name: "notebook", link: "stationary/notebook.png" },
+    { name: "book", link: "stationary/book.png" },
     { name: "calendar", link: "stationary/calender_full.png" },
     { name: "stapler", link: "stationary/stapler.png" },
     { name: "pencil sharpener", link: "stationary/pencil sharpener.png" },
-    { name: "marker", link: "stationary/pencil.png" },
+    { name: "marker", link: "stationary/marker.png" },
     { name: "crayons", link: "stationary/crayons.png" },
     { name: "scissors", link: "stationary/scissors.png" },
     { name: "calculator", link: "stationary/bunbougu_dentaku.png" },
@@ -157,6 +157,44 @@ const BEVERAGE = [
     { name: "juice", link: "drink/juice_apple.png" },
     { name: "soda", link: "drink/soda4_green.png" },
     { name: "tea", link: "drink/tea_lemon.png" },
+]
+
+// school locations : need to have unigue handles
+//const TEMPLATE = "school/NAME.png";
+
+const ART_ROOM = { name: "Arts and crafts room", link: "school/arts and crafts room.png" };
+const CLASSROOM = { name: "classroom", link: "school/classroom.png" };
+const COMPUTER = { name: "computer room", link: "school/computer room.png" };
+const COOKING = { name: "cooking room", link: "school/cooking room.png" };
+const ENTRANCE = { name: "entrace", link: "school/entrance.png" };
+const GYM = { name: "gymnasium", link: "school/gym.png" };
+const LIBRARY = { name: "library", link: "school/library.png" };
+const LUNCH = { name: "lunch", link: "school/lunch room.png" };
+const MUSIC = { name: "music room", link: "school/music room.png" };
+const NURSE = { name: "school nurses office", link: "school/nurses office.png" };
+const PLAYGROUND = { name: "playground", link: "school/playground.png" };
+const RESTROOM = { name: "restroom", link: "school/restroom.png" };
+const SCHOOL_OFFICE = { name: "school office", link: "school/school office.png" };
+const PRINCIPAL = { name: "principals office", link: "school/school principals office.png" };
+const SCIENCE = { name: "science room", link: "school/science room.png" };
+const TEACHERS = { name: "teachers office", link: "school/teachers office.png" };
+
+const SCHOOL = [
+    ART_ROOM,
+    CLASSROOM,
+    CLASSROOM,
+    COMPUTER,
+    COOKING,
+    ENTRANCE,
+    LIBRARY,
+    LUNCH,
+    MUSIC,
+    NURSE,
+    RESTROOM,
+    SCHOOL_OFFICE,
+    PRINCIPAL,
+    SCIENCE,
+    TEACHERS
 ]
 
 /*
