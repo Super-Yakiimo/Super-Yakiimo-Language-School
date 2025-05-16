@@ -5,6 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>School Nav</title>
+    <style>
+        #player {
+            position: absolute;
+            left: 5px; top: 5px;
+        }
+    </style>
 </head>
 
 <body>
@@ -12,6 +18,10 @@
     <canvas id="player"></canvas>
 
     <div id="con"></div>
+
+                <button type="button" id="leftBuffon">Turn Left</button>
+            <button type="button" id="straightBuffon">Go Straight</button>
+            <button type="button" id="rightBuffon">Turn Right</button>
 
     <script src="../../js/img_database.js"></script>
     <script src="./nav.js"></script>

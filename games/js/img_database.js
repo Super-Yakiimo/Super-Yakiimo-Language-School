@@ -185,7 +185,6 @@ const SCHOOL = [
     CLASSROOM,
     COMPUTER,
     COOKING,
-    ENTRANCE,
     LIBRARY,
     LUNCH,
     MUSIC,

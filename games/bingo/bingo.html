@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="vocabBox"></div>
+
+    <div>
+        <p>Pixel size: </p>
+        <input type="number" id="dimPx" step="100" value="500">
+        <p>Rows/Comumns: </p>
+        <input id="dim" type="number" value="3">
+        <p>How many: </p>
+         <input id="many" type="number" value="6">
+        <button>Enter</button>
+        <button onclick="print()">Print</button>
+    </div>
+
+    <canvas></canvas>
+
+    <h1>Bingo sheets will appear here</h1>
+
+    <div id="canvasCon">
+
+    </div>
+
+
+    <!-- template js -->
+    <script src="../js/img_database.js"></script>
+    <script src="../js/vocabSelectBox.js"></script>
+
+    <script src="./bingo.js"></script>
+</body>
+
+</html>

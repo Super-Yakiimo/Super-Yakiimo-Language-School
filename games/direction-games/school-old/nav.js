@@ -493,7 +493,7 @@ window.onload = function () {
     });
 
     moveBtn.addEventListener("click", () => {
-        move()
+        move();
     });
 
 
