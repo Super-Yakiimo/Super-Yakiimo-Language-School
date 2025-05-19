@@ -1,42 +1,84 @@
 /*
 drawing the school map
 */
-let tile = 50;
+let tile = 60;
 
 const BOARD = {
     width: 15,
     height: 8,
+    row:7,
+    col:5,
     layout: [
-        // big room
-        { x: 11, y: 0, w: 4, h: 4, room: GYM },
+        // bottom row
+        { x: 0, y: 6, w: 2, h: 2 },
+        { x: 2, y: 6, w: 2, h: 2 },
+        { x: 4, y: 6, w: 2, h: 2 },
+        { x: 6, y: 6, w: 1, h: 2, room: HALL},
+        { x: 7, y: 6, w: 2, h: 2 },
+        { x: 9, y: 6, w: 2, h: 2 },
+
+        // BIG ROOM
         { x: 11, y: 4, w: 4, h: 4, room: PLAYGROUND },
 
-        // top row
-        { x: 0, y: 0, w: 2, h: 2 },
-        { x: 2, y: 0, w: 2, h: 2 },
-        { x: 4, y: 0, w: 2, h: 2 },
-        { x: 7, y: 0, w: 2, h: 2 },
-        { x: 9, y: 0, w: 2, h: 2 },
+        // hall
+        {x: 0, y: 5, w: 2, h:1, room: HALL},
+        {x: 2, y: 5, w: 2, h:1, room: HALL},
+        {x: 4, y: 5, w: 2, h:1, room: HALL},
+        {x: 6, y: 5, w: 1, h:1, room: HALL},
+        {x: 7, y: 5, w: 2, h:1, room: HALL},
+        {x: 9, y: 5, w: 2, h:1, room: HALL},
+
+        // BIG ROOM
+        {  x: 11, y: 4, w: 4, h: 4, room: BLANK },
 
         // middle row
         { x: 0, y: 3, w: 2, h: 2, room: ENTRANCE },
         { x: 2, y: 3, w: 2, h: 2 },
         { x: 4, y: 3, w: 2, h: 2 },
+        { x: 6, y: 3, w: 1, h: 2, room: HALL},
         { x: 7, y: 3, w: 2, h: 2 },
         { x: 9, y: 3, w: 2, h: 2 },
+        
+        { x: 9, y: 3, w: 2, h: 2, room: BLANK },
 
-        // bottom row
-        { x: 0, y: 6, w: 2, h: 2 },
-        { x: 2, y: 6, w: 2, h: 2 },
-        { x: 4, y: 6, w: 2, h: 2 },
-        { x: 7, y: 6, w: 2, h: 2 },
-        { x: 9, y: 6, w: 2, h: 2 },
+        // hall
+        {x: 0, y: 2, w: 2, h:1, room: HALL},
+        {x: 2, y: 2, w: 2, h:1, room: HALL},
+        {x: 4, y: 2, w: 2, h:1, room: HALL},
+        {x: 6, y: 2, w: 1, h:1, room: HALL},
+        {x: 7, y: 2, w: 2, h:1, room: HALL},
+        {x: 9, y: 2, w: 2, h:1, room: HALL},
+
+        // big room
+        { x: 11, y: 0, w: 4, h: 4, room: GYM },
+
+        // top row
+        { x: 0, y: 0, w: 2, h: 2 },
+        { x: 2, y: 0, w: 2, h: 2 },
+        { x: 4, y: 0, w: 2, h: 2 },
+        { x: 6, y: 0, w: 1, h: 2, room: HALL},
+        { x: 7, y: 0, w: 2, h: 2 },
+        { x: 9, y: 0, w: 2, h: 2 },
+
+        // big room
+        { x: 11, y: 0, w: 4, h: 4, room: GYM },
     ]
 }
 
 const VERT = {
     width: 8,
     height: 15,
+    row: 5,
+    col: 7,
+    posList: [
+        { "x": 1, "y": 2 },{ "x": 2, "y": 2 }, { "x": 3, "y": 2 }, { "x": 6, "y": 6 }, { "x": 7, "y": 6 },
+        { "x": 1, "y": 1 }, { "x": 2.5, "y": 2.5 }, { "x": 4, "y": 4 }, { "x": 5.5, "y": 5.5 }, { "x": 7, "y": 7 }, 
+        { "x": 1, "y": 1 }, { "x": 2.5, "y": 2.5 },{ "x": 4, "y": 4 }, { "x": 5.5, "y": 5.5 }, { "x": 7, "y": 7 }, 
+        { "x": 1, "y": 1 }, { "x": 2.5, "y": 2.5 }, { "x": 4, "y": 4 }, { "x": 5.5, "y": 5.5 }, { "x": 7, "y": 7 }, 
+        { "x": 1, "y": 1 }, { "x": 2.5, "y": 2.5 }, { "x": 4, "y": 4 }, { "x": 5.5, "y": 5.5 }, { "x": 7, "y": 7 }, 
+        { "x": 1, "y": 1 },  { "x": 2.5, "y": 2.5 }, { "x": 4, "y": 4 }, { "x": 5.5, "y": 5.5 }, { "x": 7, "y": 7 }, 
+        { "x": 1, "y": 1 }, { "x": 2.5, "y": 2.5 }, { "x": 4, "y": 4 }, { "x": 5.5, "y": 5.5 }, { "x": 7, "y": 7 }
+    ],
     layout: [
         // big room
         { x: 0, y: 0, w: 4, h: 4, room: GYM },
@@ -44,28 +86,49 @@ const VERT = {
 
         // row one
         { x: 0, y: 4, w: 2, h: 2 },
+        { x: 2, y: 4, w: 1, h: 2, room: HALL }, // hall
         { x: 3, y: 4, w: 2, h: 2 },
+        { x: 5, y: 4, w: 1, h: 2, room: HALL }, // hall
         { x: 6, y: 4, w: 2, h: 2 },
 
         // row two
         { x: 0, y: 6, w: 2, h: 2 },
+        { x: 2, y: 6, w: 1, h: 2, room: HALL }, // hall
         { x: 3, y: 6, w: 2, h: 2 },
+        { x: 5, y: 6, w: 1, h: 2, room: HALL }, // hall
         { x: 6, y: 6, w: 2, h: 2 },
+
+        // hall row
+        { x: 0, y: 8, w: 2, h: 1, room: HALL },
+        { x: 2, y: 8, w: 1, h: 1, room: HALL },
+        { x: 3, y: 8, w: 2, h: 1, room: HALL },
+        { x: 5, y: 8, w: 1, h: 1, room: HALL },
+        { x: 6, y: 8, w: 2, h: 1, room: HALL },
 
         // row three
         { x: 0, y: 9, w: 2, h: 2 },
+        { x: 2, y: 9, w: 1, h: 2, room: HALL }, // hall
         { x: 3, y: 9, w: 2, h: 2 },
+        { x: 5, y: 9, w: 1, h: 2, room: HALL }, // hall
         { x: 6, y: 9, w: 2, h: 2 },
 
         // row four
         { x: 0, y: 11, w: 2, h: 2 },
+        { x: 2, y: 11, w: 1, h: 2, room: HALL }, // hall
         { x: 3, y: 11, w: 2, h: 2 },
+        { x: 5, y: 11, w: 1, h: 2, room: HALL }, // hall
         { x: 6, y: 11, w: 2, h: 2 },
 
         // row five
         { x: 0, y: 13, w: 2, h: 2 },
+        { x: 2, y: 13, w: 1, h: 2, room: HALL }, // hall
         { x: 3, y: 13, w: 2, h: 2, room: ENTRANCE },
+        { x: 5, y: 13, w: 1, h: 2, room: HALL }, // hall
         { x: 6, y: 13, w: 2, h: 2 },
+    ],
+    points: [
+        // bottom row // row five
+        { x: 1.5, y: 1.5 }, { x: 2.5, y: 1.5 }, { x: 3.5, y: 1.5 }, { x: 7.5, y: 1.5 },
     ]
 }
 
@@ -136,12 +199,11 @@ window.onload = () => {
 
     // pos list
     let posList = [];
-    let ht = tile / 2
-    for(let i = 0; i < select.width; i++){
-        for(let j = 0; j < select.height; j++){
-            posList.push({x: i * tile + ht, y: j * tile + ht});
-        }
-    }
+    select.layout.forEach((value, index) => {
+        let x = (value.x + value.w / 2) * tile - tile / 2;
+        let y = (value.y + value.h / 2) * tile - tile / 2;
+        posList.push({ x, y });
+    });
 
     console.log(posList);
 
@@ -154,14 +216,19 @@ window.onload = () => {
 
     // player variable
     let player = {
-        x: ht,
-        y: ht,
-        w: tile,
-        h: tile,
-        index: 0
+        x: 0,
+        y: 0,
+        xIndex: 0,
+        yIndex: 0,
+        w: tile / 2,
+        h: tile / 2,
     }
 
-    console.log(player);
+    // put player on initial position
+    let init = posList[select.row * player.yIndex + player.xIndex];
+    player.x = init.x;
+    player.y = init.y;
+
 
     // animation increment the index every step
     let animIndex = 0;
@@ -170,16 +237,19 @@ window.onload = () => {
     const drawChar = () => {
         // draw position
         let xPos = player.x;
-        let yPos = pCan.height - player.y;
+        let yPos = player.y;
         // slice width and height for cutting character sprite
         let SLICE_WIDTH = charImg.width / SWIDTH;
         let SLICE_HEIGHT = charImg.height / SHEIGHT;
         let sX = animIndex % SWIDTH * SLICE_WIDTH;
         let sY = Math.floor(animIndex / SWIDTH) * (charImg.height / SHEIGHT);
         pxt.drawImage(charImg, sX, sY, SLICE_WIDTH, SLICE_HEIGHT, xPos, yPos, tile, tile);
+
+        pxt.font = `20px Arial`;
+        pxt.fillText(`x: ${player.xIndex} y: ${player.yIndex}`, 10, 50);
     }
 
-    let playerDir = DIR.DOWN;
+    let playerDir = DIR.UP;
     let dirIndex = 2;
     let moving = false;
 
@@ -209,32 +279,47 @@ window.onload = () => {
     }
 
     const move = () => {
-        console.log('move');
-        // check postion before move
-        let nextX = player.x;
-        let nextY = player.y;
+
+        // store current postion before move
+        let nextX = player.xIndex;
+        let nextY = player.yIndex;
 
         switch (playerDir) {
             case DIR.UP:
-                nextY+=tile;
+                console.log('up');
+                nextY += 1;
                 break;
             case DIR.RIGHT:
-                nextX+=tile;
+                console.log('right');
+                nextX += 1;
                 break;
             case DIR.DOWN:
-                nextY-=tile;
+                console.log('down');
+                nextY -= 1;
                 break;
             case DIR.LEFT:
-                nextX-=tile;
+                console.log('left');
+                nextX -= 1;
                 break;
         }
 
-        player.x = nextX;
-        player.y = nextY;
+        // check boundaries stop if about to move out of bounds
+        if (nextX < 0 || nextX >= select.row || nextY < 0 || nextY >= select.col) {
+            return console.log('stop!');
+        }
 
-        // if (nextX < 0 || nextX >= select.width || nextY < 0 || nextY >= select.height) {
-        //     return;
-        // }
+        player.xIndex = nextX;
+        player.yIndex = nextY;
+
+        let nextRaw = posList[select.row * player.yIndex + player.xIndex];
+        player.x = nextRaw.x;
+        player.y = nextRaw.y;
+
+        // player.x = nextX;
+        // player.y = nextY;
+
+        // console.log(player.x, player.y);
+
 
         // // update the position
         // player.xIndex = nextX;

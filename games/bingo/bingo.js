@@ -25,6 +25,8 @@ window.onload = function () {
 
     let btn = document.querySelector('button');
 
+    let prntBtn = document.querySelector("#prntBtn");
+
     setup();
 
     let dimPx = document.querySelector("#dimPx");
@@ -82,10 +84,42 @@ window.onload = function () {
                     ctx.font = `${25}px Arial`;
                     ctx.textAlign = "center";
                     ctx.fillStyle = 'black';
+
+                    let printText = curr.name;
+
+                    if(printText.length > 8){
+                        printText = printText.replace(" ", "\n");
+                        console.log(printText);
+                    }
+
                     ctx.fillText(curr.name, x + picDimPx / 2, y + picDimPx * 0.8);
                 }
             }
             canvasCon.appendChild(canvas);
         }
+    });
+
+
+    prntBtn.addEventListener('click', ()=>{
+        let copy = canvasCon.cloneNode(true);
+        console.log(copy.children.item(0));
+
+        Array.from(canvasCon.children).forEach((value, index)=>{
+            
+            let canvas = copy.children.item(index);
+            canvas.width = value.width;
+            canvas.height = value.height;
+            let ctx = canvas.getContext('2d');
+            ctx.drawImage(value, 0, 0, canvas.width, canvas.height, 
+                0, 0, canvas.width, canvas.height);
+        });
+        
+        let win = window.open();
+        self.focus();
+        win.document.open();
+        win.document.append(copy);
+        win.document.close();
+        win.print();
+        win.close();
     });
 }

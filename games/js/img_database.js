@@ -178,6 +178,8 @@ const SCHOOL_OFFICE = { name: "school office", link: "school/school office.png" 
 const PRINCIPAL = { name: "principals office", link: "school/school principals office.png" };
 const SCIENCE = { name: "science room", link: "school/science room.png" };
 const TEACHERS = { name: "teachers office", link: "school/teachers office.png" };
+const HALL = { name: "hall", link: "school/hall.png" };
+const BLANK = {name: "none", link: null}
 
 const SCHOOL = [
     ART_ROOM,

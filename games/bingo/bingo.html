@@ -4,7 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Bingo</title>
+    <style>
+        canvas {
+            padding-bottom: 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -12,13 +17,13 @@
 
     <div>
         <p>Pixel size: </p>
-        <input type="number" id="dimPx" step="100" value="500">
+        <input type="number" id="dimPx" step="100" value="700">
         <p>Rows/Comumns: </p>
         <input id="dim" type="number" value="3">
         <p>How many: </p>
          <input id="many" type="number" value="6">
         <button>Enter</button>
-        <button onclick="print()">Print</button>
+        <button id="prntBtn">Print</button>
     </div>
 
     <canvas></canvas>
