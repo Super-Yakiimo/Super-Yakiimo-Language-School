@@ -1,7 +1,6 @@
 /*
 drawing the school map
 */
-let tile = 60;
 
 const BOARD = {
     width: 15,
@@ -18,7 +17,7 @@ const BOARD = {
         { x: 9, y: 6, w: 2, h: 2 },
 
         // BIG ROOM
-        { x: 11, y: 4, w: 4, h: 4, room: PLAYGROUND },
+        { x: 11, y: 4, w: 4, h: 4, room: BLANK },
 
         // hall
         {x: 0, y: 5, w: 2, h:1, room: HALL},
@@ -29,7 +28,7 @@ const BOARD = {
         {x: 9, y: 5, w: 2, h:1, room: HALL},
 
         // BIG ROOM
-        {  x: 11, y: 4, w: 4, h: 4, room: BLANK },
+        {  x: 11, y: 4, w: 4, h: 4, room: PLAYGROUND },
 
         // middle row
         { x: 0, y: 3, w: 2, h: 2, room: ENTRANCE },
@@ -61,7 +60,7 @@ const BOARD = {
         { x: 9, y: 0, w: 2, h: 2 },
 
         // big room
-        { x: 11, y: 0, w: 4, h: 4, room: GYM },
+        { x: 11, y: 0, w: 4, h: 4, room: BLANK },
     ]
 }
 
@@ -70,47 +69,13 @@ const VERT = {
     height: 15,
     row: 5,
     col: 7,
-    posList: [
-        { "x": 1, "y": 2 },{ "x": 2, "y": 2 }, { "x": 3, "y": 2 }, { "x": 6, "y": 6 }, { "x": 7, "y": 6 },
-        { "x": 1, "y": 1 }, { "x": 2.5, "y": 2.5 }, { "x": 4, "y": 4 }, { "x": 5.5, "y": 5.5 }, { "x": 7, "y": 7 }, 
-        { "x": 1, "y": 1 }, { "x": 2.5, "y": 2.5 },{ "x": 4, "y": 4 }, { "x": 5.5, "y": 5.5 }, { "x": 7, "y": 7 }, 
-        { "x": 1, "y": 1 }, { "x": 2.5, "y": 2.5 }, { "x": 4, "y": 4 }, { "x": 5.5, "y": 5.5 }, { "x": 7, "y": 7 }, 
-        { "x": 1, "y": 1 }, { "x": 2.5, "y": 2.5 }, { "x": 4, "y": 4 }, { "x": 5.5, "y": 5.5 }, { "x": 7, "y": 7 }, 
-        { "x": 1, "y": 1 },  { "x": 2.5, "y": 2.5 }, { "x": 4, "y": 4 }, { "x": 5.5, "y": 5.5 }, { "x": 7, "y": 7 }, 
-        { "x": 1, "y": 1 }, { "x": 2.5, "y": 2.5 }, { "x": 4, "y": 4 }, { "x": 5.5, "y": 5.5 }, { "x": 7, "y": 7 }
-    ],
     layout: [
-        // big room
-        { x: 0, y: 0, w: 4, h: 4, room: GYM },
-        { x: 4, y: 0, w: 4, h: 4, room: PLAYGROUND },
-
-        // row one
-        { x: 0, y: 4, w: 2, h: 2 },
-        { x: 2, y: 4, w: 1, h: 2, room: HALL }, // hall
-        { x: 3, y: 4, w: 2, h: 2 },
-        { x: 5, y: 4, w: 1, h: 2, room: HALL }, // hall
-        { x: 6, y: 4, w: 2, h: 2 },
-
-        // row two
-        { x: 0, y: 6, w: 2, h: 2 },
-        { x: 2, y: 6, w: 1, h: 2, room: HALL }, // hall
-        { x: 3, y: 6, w: 2, h: 2 },
-        { x: 5, y: 6, w: 1, h: 2, room: HALL }, // hall
-        { x: 6, y: 6, w: 2, h: 2 },
-
-        // hall row
-        { x: 0, y: 8, w: 2, h: 1, room: HALL },
-        { x: 2, y: 8, w: 1, h: 1, room: HALL },
-        { x: 3, y: 8, w: 2, h: 1, room: HALL },
-        { x: 5, y: 8, w: 1, h: 1, room: HALL },
-        { x: 6, y: 8, w: 2, h: 1, room: HALL },
-
-        // row three
-        { x: 0, y: 9, w: 2, h: 2 },
-        { x: 2, y: 9, w: 1, h: 2, room: HALL }, // hall
-        { x: 3, y: 9, w: 2, h: 2 },
-        { x: 5, y: 9, w: 1, h: 2, room: HALL }, // hall
-        { x: 6, y: 9, w: 2, h: 2 },
+        // row five
+        { x: 0, y: 13, w: 2, h: 2 },
+        { x: 2, y: 13, w: 1, h: 2, room: HALL }, // hall
+        { x: 3, y: 13, w: 2, h: 2, room: ENTRANCE },
+        { x: 5, y: 13, w: 1, h: 2, room: HALL }, // hall
+        { x: 6, y: 13, w: 2, h: 2 },
 
         // row four
         { x: 0, y: 11, w: 2, h: 2 },
@@ -119,12 +84,44 @@ const VERT = {
         { x: 5, y: 11, w: 1, h: 2, room: HALL }, // hall
         { x: 6, y: 11, w: 2, h: 2 },
 
-        // row five
-        { x: 0, y: 13, w: 2, h: 2 },
-        { x: 2, y: 13, w: 1, h: 2, room: HALL }, // hall
-        { x: 3, y: 13, w: 2, h: 2, room: ENTRANCE },
-        { x: 5, y: 13, w: 1, h: 2, room: HALL }, // hall
-        { x: 6, y: 13, w: 2, h: 2 },
+        // row three
+        { x: 0, y: 9, w: 2, h: 2 },
+        { x: 2, y: 9, w: 1, h: 2, room: HALL }, // hall
+        { x: 3, y: 9, w: 2, h: 2 },
+        { x: 5, y: 9, w: 1, h: 2, room: HALL }, // hall
+        { x: 6, y: 9, w: 2, h: 2 },
+
+        // hall row
+        { x: 0, y: 8, w: 2, h: 1, room: HALL },
+        { x: 2, y: 8, w: 1, h: 1, room: HALL },
+        { x: 3, y: 8, w: 2, h: 1, room: HALL },
+        { x: 5, y: 8, w: 1, h: 1, room: HALL },
+        { x: 6, y: 8, w: 2, h: 1, room: HALL },
+
+        // row two
+        { x: 0, y: 6, w: 2, h: 2 },
+        { x: 2, y: 6, w: 1, h: 2, room: HALL }, // hall
+        { x: 3, y: 6, w: 2, h: 2 },
+        { x: 5, y: 6, w: 1, h: 2, room: HALL }, // hall
+        { x: 6, y: 6, w: 2, h: 2 },
+
+        // row one
+        { x: 0, y: 4, w: 2, h: 2 },
+        { x: 2, y: 4, w: 1, h: 2, room: HALL }, // hall
+        { x: 3, y: 4, w: 2, h: 2 },
+        { x: 5, y: 4, w: 1, h: 2, room: HALL }, // hall
+        { x: 6, y: 4, w: 2, h: 2 },
+
+
+        // top row big rooms
+        { x: 11, y: 4, w: 4, h: 4, room: BLANK },
+        { x: 0, y: 0, w: 4, h: 4, room: GYM },
+        { x: 11, y: 4, w: 4, h: 4, room: BLANK },
+        { x: 4, y: 0, w: 4, h: 4, room: PLAYGROUND },
+        { x: 11, y: 4, w: 4, h: 4, room: BLANK },
+
+
+
     ],
     points: [
         // bottom row // row five
@@ -132,9 +129,7 @@ const VERT = {
     ]
 }
 
-let select = BOARD;
-
-const drawBoard = () => {
+const drawBoard = (select, tile) => {
     let map = document.querySelector('#map');
     let mCtx = map.getContext('2d');
 
@@ -158,6 +153,9 @@ const drawBoard = () => {
 
     let randSchool = SCHOOL.sort(() => Math.random() - 0.5);
     select.layout.forEach((room, index) => {
+        if(room.room.link == null){
+            return;
+        }
         let img = document.createElement('img');
         img.onload = () => {
             mCtx.drawImage(img, 0, 0, img.width, img.height, room.x * tile, room.y * tile, room.w * tile, room.h * tile);
@@ -195,7 +193,19 @@ when window loads start here
 */
 
 window.onload = () => {
-    drawBoard();
+
+    let select = BOARD;
+
+    let tile = window.innerWidth / select.width * 0.9;
+
+    // vert 
+    if(window.innerHeight > window.innerWidth){
+        select = VERT;
+        tile = window.innerHeight / select.height;
+    }
+
+
+    drawBoard(select, tile);
 
     // pos list
     let posList = [];
@@ -306,6 +316,11 @@ window.onload = () => {
         // check boundaries stop if about to move out of bounds
         if (nextX < 0 || nextX >= select.row || nextY < 0 || nextY >= select.col) {
             return console.log('stop!');
+        }
+
+        // check if the next room is a null room and should not be moved to
+        if(select.layout[select.row * nextY + nextX].room.link == null){
+            return console.log('null');
         }
 
         player.xIndex = nextX;
