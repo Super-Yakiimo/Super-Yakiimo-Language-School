@@ -13,9 +13,11 @@ const WEIGHT_LIST = [
 function loadCards(number = 10) {
     let cardCon = document.querySelector("#cardCon");
 
+    let sizeSelect = document.querySelector("#sizeSelect");
+    let dim = Number(sizeSelect.value);
+
     let list = getInputs().sort(() => Math.random() - 0.5).slice(0, number);
 
-    console.log(number, list.length);
 
     if (list == null || list.length == 0) {
         alert('select some cards');
@@ -31,6 +33,7 @@ function loadCards(number = 10) {
         let flipCard = document.createElement("div");
         flipCard.id = `card${i}`;
         flipCard.className = "flip-card";
+        flipCard.setAttribute('style', `width: ${dim}vw; height: ${dim}vw;`);
 
         // flip card inner 
         let flipInner = document.createElement("div");

@@ -66,6 +66,21 @@ const VEGETABLE = [
     { name: "eggplant", link: "vegetable/eggplant.png" }
 ]
 
+const PIZZA = [
+    { name: "", link: "" },
+    { name: "", link: "" },
+    { name: "", link: "" },
+    { name: "", link: "" },
+    { name: "", link: "" },
+    { name: "", link: "" },
+    { name: "", link: "" },
+    { name: "", link: "" },
+    { name: "", link: "" },
+    { name: "", link: "" },
+    { name: "", link: "" },
+    { name: "", link: "" },
+]
+
 const FRUIT = [
     { name: "apples", link: "fruit/fruit_ringo.png" },
     { name: "bananas", link: "fruit/fruit_banana.png" },
@@ -83,6 +98,27 @@ const FRUIT = [
     { name: "grapes", link: "fruit/fruit_budou_kyohou.png" },
     { name: "water mellon", link: "fruit/fruit_suika_kodama.png" },
     { name: "blue berry", link: "fruit/fruit_blueberry.png" }
+]
+
+const PARFAIT = [
+    { name: "apple", link: "parfait/apple.png" },
+    { name: "banana", link: "parfait/banana.png" },
+    { name: "kiwi", link: "parfait/kiwi.png" },
+    { name: "lemon", link: "parfait/lemon.png" },
+    { name: "melon orange", link: "parfait/melon_orange.png" },
+    { name: "melon", link: "parfait/melon.png" },
+    { name: "orange", link: "parfait/orange.png" },
+    { name: "peach", link: "parfait/peach.png" },
+    { name: "pineapple", link: "parfait/pineapple_ring.png" },
+    { name: "pineapple", link: "parfait/pineapple.png" },
+    { name: "raspberry", link: "parfait/raspberry.png" },
+    { name: "sakuranbo", link: "parfait/sakuranbo.png" },
+    { name: "strawberry", link: "parfait/strawberry.png" },
+    { name: "icecream_blueberry", link: "parfait/icecream_blueberry.png" },
+    { name: "icecream_chocolate", link: "parfait/icecream_chocolate.png" },
+    { name: "icecream_strawberry", link: "parfait/icecream_strawberry.png" },
+    { name: "icecream_vanilla", link: "parfait/icecream_vanilla.png" },
+
 ]
 
 const STATIONARY = [
@@ -127,8 +163,8 @@ const SHAPE = [
     { name: "rectangle", link: "shape/rectangle.png" },
     { name: "square", link: "shape/square.png" },
     { name: "star", link: "shape/star.png" },
-    { name: "parallelogram", link: "shape/paralleogram.png"},
-    { name: "trapezoid", link: "shape/trapazoid.png"},
+    { name: "parallelogram", link: "shape/paralleogram.png" },
+    { name: "trapezoid", link: "shape/trapazoid.png" },
     { name: "right triangle", link: "shape/right-triangle.png" },
     { name: "triangle", link: "shape/triangle.png" },
 ];
@@ -179,7 +215,7 @@ const PRINCIPAL = { name: "principals office", link: "school/school principals o
 const SCIENCE = { name: "science room", link: "school/science room.png" };
 const TEACHERS = { name: "teachers office", link: "school/teachers office.png" };
 const HALL = { name: "hall", link: "school/hall.png" };
-const BLANK = {name: "none", link: null}
+const BLANK = { name: "none", link: null }
 
 const SCHOOL = [
     ART_ROOM,
@@ -197,6 +233,47 @@ const SCHOOL = [
     SCIENCE,
     TEACHERS
 ]
+
+/*
+town loations 
+*/
+
+const TOWN = [
+    { name: "train station", link: "town/train_eki_building.png" },
+    { name: "dress shop", link: "town/tatemono_dress_shop.png" },
+    { name: "toy store", link: "town/omochaya.png" },
+    { name: "dentist", link: "town/medical_haisya_building.png" },
+    { name: "game center", link: "town/game_center.png" },
+    { name: "cake shop", link: "town/cake_ya_building.png" },
+    { name: "gym", link: "town/building_sports_gym.png" },
+    { name: "shopping mall", link: "town/building_shopping_mall.png" },
+    { name: "movie rental", link: "town/building_rental_video.png" },
+    { name: "police station", link: "town/building_police_lamp.png" },
+    { name: "toy store", link: "town/building_omocha.png" },
+    { name: "music store", link: "town/building_music_gakki.png" },
+    { name: "kiosk", link: "town/building_kiosk.png" },
+    { name: "internet cafe", link: "town/building_internet_cafe.png" },
+    { name: "hotel", link: "town/building_hotel_pet.png" },
+    { name: "theatre", link: "town/building_gekijou_theater.png" },
+    { name: "grilled chicken resturant", link: "town/building_food_yakitori.png" },
+    { name: "pizza resturant", link: "town/building_food_pizza.png" },
+    { name: "burger restaurant", link: "town/building_food_hambuger.png" },
+    { name: "family restaurant", link: "town/building_food_family_restaurant.png" },
+    { name: "fast food", link: "town/building_fastfood.png" },
+    { name: "fashion", link: "town/building_fashion.png" },
+    { name: "fashion", link: "town/building_cinema.png" },
+    { name: "casino", link: "town/building_casino.png" },
+    { name: "repair shop", link: "town/building_car_youhin_tire.png" },
+    { name: "candy shop", link: "town/building_candy_okashiya.png" },
+    { name: "bycicle shop", link: "town/building_bicycle.png" },
+    { name: "batting center", link: "town/battingcenter_building.png" },
+]
+
+const ROAD_VERT = { name: "road vert", link: "town/road_vert.png" };
+
+const ROAD_HOR = { name: "road hor", link: "town/road_hor.png" };
+
+const ROAD = { name: "road", link: "town/road.png" };
 
 /*
 

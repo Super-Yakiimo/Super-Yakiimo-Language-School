@@ -1,0 +1,22 @@
+/* layered canvases */
+
+.can-con {
+    position: relative;
+}
+
+#map {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+#player {
+    position: relative;
+}
+
+/* control pannel */
+.control {
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
+}

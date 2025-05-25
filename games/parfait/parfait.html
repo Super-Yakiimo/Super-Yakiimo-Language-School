@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parfait</title>
+</head>
+
+<body>
+    <canvas></canvas>
+
+    <script src="../js/img_database.js"></script>
+
+    <script>
+        let canvas = document.querySelector("canvas");
+        let ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        canvas.addEventListener('click', (e)=>{
+            console.log(e);
+
+            let fruit = PARFAIT[Math.floor(Math.random() * PARFAIT.length)];
+            console.log(fruit);
+
+            let img = document.createElement('img');
+            img.onload = () => {
+                ctx.drawImage(img, e.layerX, e.layerY, 100, 100);
+            }
+            img.src = BASE + fruit.link;
+
+        });
+
+
+    </script>
+</body>
+
+</html>
