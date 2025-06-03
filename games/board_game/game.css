@@ -1,0 +1,103 @@
+    * {
+
+        -webkit-touch-callout: none;
+        /* iOS Safari */
+        -webkit-user-select: none;
+        /* Safari */
+        -khtml-user-select: none;
+        /* Konqueror HTML */
+        -moz-user-select: none;
+        /* Old versions of Firefox */
+        -ms-user-select: none;
+        /* Internet Explorer/Edge */
+        user-select: none;
+        /* Non-prefixed version, currently
+                                supported by Chrome, Edge, Opera and Firefox */
+    }
+
+    body {
+        background-color: grey;
+    }
+
+
+    .background {
+        width: 80%;
+        max-height: 80%;
+
+    }
+
+    .marker {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        opacity: 0.80;
+        border: 5px solid black;
+        outline: 5px solid white;
+        text-align: center;
+        color: white;
+    }
+
+    .question-box {
+        width: 20%;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        border: 5px solid black;
+        opacity: 0.2;
+    }
+
+    .question-box:hover {
+        height: fit-content;
+         opacity: 1;
+    }
+
+    .red {
+        background-color: red;
+        right: 50px;
+        top: 400px;
+    }
+
+    .green {
+        background-color: green;
+        right: 200px;
+        top: 400px;
+    }
+
+    .blue {
+        background-color: blue;
+        right: 50px;
+        top: 500px;
+    }
+
+    .yellow {
+        background-color: yellow;
+        right: 200px;
+        top: 500px;
+        color: black;
+    }
+
+    .purple {
+        background-color: purple;
+        right: 50px;
+        top: 600px;
+    }
+
+    .orange {
+        background-color: orange;
+        right: 200px;
+        top: 600px;
+    }
+
+    .pink {
+        background-color: pink;
+        right: 50px;
+        top: 700px;
+        color: black;
+    }
+
+    .gold {
+        background-color: gold;
+        right: 200px;
+        top: 700px;
+    }

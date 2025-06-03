@@ -215,6 +215,8 @@ const PRINCIPAL = { name: "principals office", link: "school/school principals o
 const SCIENCE = { name: "science room", link: "school/science room.png" };
 const TEACHERS = { name: "teachers office", link: "school/teachers office.png" };
 const HALL = { name: "hall", link: "school/hall.png" };
+const HALL_VERT = { name: "hall vert", link: "school/hall_vert.png" };
+const HALL_HOR = { name: "hall hor", link: "school/hall_hor.png" };
 const BLANK = { name: "none", link: null }
 
 const SCHOOL = [
