@@ -9,6 +9,17 @@
         canvas {
             padding-bottom: 10px;
         }
+
+        @media print {
+            @page {
+                margin: 0;
+            }
+
+            body {
+                padding-top: 0;
+                padding-bottom: 0;
+            }
+        }
     </style>
 </head>
 
@@ -21,7 +32,7 @@
         <p>Rows/Comumns: </p>
         <input id="dim" type="number" value="3">
         <p>How many: </p>
-         <input id="many" type="number" value="6">
+        <input id="many" type="number" value="6">
         <button>Enter</button>
         <button id="prntBtn">Print</button>
     </div>

@@ -1,0 +1,16 @@
+.box {
+    border: 1px solid black;
+    width: 100vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.drag {
+    background-color: aqua;
+    border-radius: 10px;
+    width: fit-content;
+    height: fit-content;
+    padding: 1px 10px;
+    margin: 5px;
+}

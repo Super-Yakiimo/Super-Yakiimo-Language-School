@@ -319,51 +319,36 @@ window.onload = () => {
             return console.log('null');
         }
 
+        // update the player index
         player.xIndex = nextX;
         player.yIndex = nextY;
 
+        // get the raw position in px space
         let nextRaw = posList[select.row * player.yIndex + player.xIndex];
-        player.x = nextRaw.x;
-        player.y = nextRaw.y;
 
-        // player.x = nextX;
-        // player.y = nextY;
+        // get the dist to next spot
+        let distX = nextRaw.x - player.x;
+        let distY = nextRaw.y - player.y;
 
-        // console.log(player.x, player.y);
+        // number of steps to go from start to end
+        let step = 20;
 
+        // step counter
+        let count = 0;
 
-        // // update the position
-        // player.xIndex = nextX;
-        // player.yIndex = nextY;
+        let xStep = distX / step;
+        let yStep = distY / step;
 
-        // // get the target postion
-        // let target = posList[player.yIndex * select.width + player.xIndex];
-
-        // console.log(target.x, target.y);
-
-        // // move to that position
-        // let count = 0;
-        // let handle = setInterval(() => {
-        //     let xDif = target.x - player.x;
-        //     let yDif = target.y - player.y;
-
-        //     let hyp = Math.sqrt(xDif ** 2 + yDif ** 2);
-        //     let dx = xDif / hyp;
-        //     let dy = yDif / hyp;
-
-        //     player.x += dx * SPEED;
-        //     player.y += dy * SPEED;
-
-        //     count++;
-
-        //     if (count > 35 || (Math.abs(xDif) < 0.01 && Math.abs(yDif) < 0.01)) {
-        //         console.log(xDif, yDif);
-        //         clearInterval(handle);
-        //         player.x = target.x;
-        //         player.y = target.y;
-        //         console.log('end');
-        //     }
-        // }, 20);
+        let handle = setInterval(() => {
+            if (count > step) {
+                clearInterval(handle);
+                player.x = nextRaw.x;
+                player.y = nextRaw.y;
+            }
+            player.x += xStep;
+            player.y += yStep;
+            count++;
+        }, 20);
     }
 
     // button handlers

@@ -81,7 +81,7 @@ window.onload = function () {
                         ctx.drawImage(img, x + picDimPx * 0.25, y, picDimPx / 2, picDimPx / 2);
                     }
 
-                    ctx.font = `${25}px Arial`;
+                    ctx.font = `${picDimPx * 0.13}px Arial`;
                     ctx.textAlign = "center";
                     ctx.fillStyle = 'black';
 
