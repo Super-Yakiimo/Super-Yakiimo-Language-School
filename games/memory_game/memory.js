@@ -5,7 +5,7 @@ const QUEST = BASE + "/mono-gnome-question.png";
 const DIM = 200;
 
 // create game
-function createGame(width, height) {
+function createGame(width, height, dim) {
     // add cards based on select
     let cards = getInputs();
 
@@ -48,8 +48,9 @@ function createGame(width, height) {
 
     // set board px w and h based on puzzle dimensions
     let cardParent = document.querySelector("#cardParent");
-    cardParent.style.width = `${DIM * width}px`;
-    cardParent.style.width = `${DIM * height}px`;
+    console.log(dim);
+    cardParent.style.width = `${dim * width}px`;
+    cardParent.style.width = `${dim * height}px`;
 
     // clear cardParent
     cardParent.innerHTML = "";
@@ -59,6 +60,10 @@ function createGame(width, height) {
     let last = null;
 
     let wait = false;
+
+    // store the html handlers for memeory cards to adjust later 
+    // return when function is done
+    let memeoryCardList = [];
 
     // loop through all the cards
     ls.forEach((value, index) => {
@@ -82,14 +87,14 @@ function createGame(width, height) {
 
         // back image
         let back = document.createElement('img');
-        back.width = DIM;
-        back.height = DIM;
+        // back.width = DIM;
+        // back.height = DIM;
         back.src = BASE + link;
 
         // front image 
         let front = document.createElement("img");
-        front.width = DIM;
-        front.height = DIM;
+        // front.width = DIM;
+        // front.height = DIM;
         front.src = QUEST;
 
         // add canvas to back
@@ -141,12 +146,115 @@ function createGame(width, height) {
                 last = { value, index };
             }
         });
+
+        // add each card to the list
+        memeoryCardList.push(memoryCard);
     });
 
+    // return when done
+    return memeoryCardList;
 }
 
 
 window.onload = function(){
     setup();
     genVoiceControl();
+
+    /*
+    select card dimensions
+    */
+    const cardDim = document.querySelector("#cardDim");
+    const cardSizeOut = document.querySelector("#cardSizeOut");
+    let size = 0;
+    let width, height;
+    let cardList;
+
+    const getDim = () => {
+        let dim = size*window.innerWidth;
+        return dim;
+    }
+
+    const update = () => {
+        size = Number(cardDim.value);
+        cardSizeOut.innerHTML = size * 100;
+        if(cardList == null || cardList.length == 0){
+            return;
+        }
+        let dim = getDim();
+        cardList.forEach((card, index)=>{
+            
+            card.setAttribute('style', `width: ${dim}px; height: ${dim}px;`);
+        });
+
+        // set board px w and h based on puzzle dimensions
+        let cardParent = document.querySelector("#cardParent");
+        console.log(dim, dim*width, dim*height);
+        cardParent.style.width = `${dim * width}px`;
+        cardParent.style.width = `${dim * height}px`;
+    }
+
+    update();
+
+    cardDim.addEventListener("change", ()=>{
+        update();
+    });
+    
+
+    /*
+    select grid dimensions
+    */
+
+    const thrBy4 = document.querySelector("#thrBy4");
+
+    thrBy4.addEventListener("click", ()=>{
+        width = 3;
+        height = 4;
+        cardList = createGame(3, 4, getDim());
+        update();
+    });
+
+    const frBy4 = document.querySelector("#frBy4");
+
+    frBy4.addEventListener("click", ()=>{
+        width = 4;
+        height = 4;
+        cardList = createGame(4, 4, getDim());
+        update();
+    });
+
+    const frBy5 = document.querySelector("#frBy5");
+
+    frBy5.addEventListener("click", ()=>{
+        width = 4;
+        height = 5;
+        cardList = createGame(4, 5, getDim());
+        update();
+    });
+
+    const frBy6 = document.querySelector("#frBy6");
+
+    frBy6.addEventListener("click", ()=>{
+        width = 4;
+        height = 6;
+        cardList = createGame(4, 6, getDim());
+        update();
+    });
+
+    const fvBy6 = document.querySelector("#fvBy6");
+
+    fvBy6.addEventListener("click", ()=>{
+        width = 5;
+        height = 6;
+        cardList = createGame(5, 6, getDim());
+        update();
+    });
+
+    const sxBy5 = document.querySelector("#sxBy5");
+
+    sxBy5.addEventListener("click", ()=>{
+        width = 6;
+        height = 5;
+        cardList = createGame(6, 5, getDim());
+        update();
+    });
 }
